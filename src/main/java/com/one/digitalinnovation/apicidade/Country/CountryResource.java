@@ -1,4 +1,4 @@
-package com.one.digitalinnovation.apicidade;
+package com.one.digitalinnovation.apicidade.Country;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/countries")
@@ -32,6 +33,19 @@ public class CountryResource {
         Page<Country> lista = countryRepository.findAll(pageable);
 
         return new ResponseEntity<Page<Country>>(lista, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Country> buscaPais(@PathVariable Long id){
+
+        var optinal = countryRepository.findById(id);
+
+        if(optinal.isPresent()){
+            return new ResponseEntity<Country>(optinal.get(), HttpStatus.OK);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+        
     }
     
 }

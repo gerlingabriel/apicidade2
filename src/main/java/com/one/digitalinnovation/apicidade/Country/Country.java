@@ -1,4 +1,4 @@
-package com.one.digitalinnovation.apicidade;
+package com.one.digitalinnovation.apicidade.Country;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
