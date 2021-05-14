@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=heroku bluid/libs/apicidade-0.0.1-SNAPSHOT
