@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
@@ -31,9 +32,9 @@ public class City {
   private String geolocation;
 
   // 2nd
-  //@Type(type = "point")
-  //@Column(name = "lat_lon", updatable = false, insertable = false)
-  //private Point location;
+  @Type(type = "point")
+  @Column(name = "lat_lon", updatable = false, insertable = false)
+  private Point location;
 
   public City() {
   }
@@ -54,7 +55,7 @@ public class City {
     this.uf = uf;
     this.ibge = ibge;
     this.geolocation = geolocation;
-    //this.location = location;
+    this.location = location;
   }
 
   public Long getId() {
@@ -77,7 +78,7 @@ public class City {
     return geolocation;
   }
 
-  //public Point getLocation() {
-  //  return location;
-  //}
+  public Point getLocation() {
+    return location;
+  }
 }

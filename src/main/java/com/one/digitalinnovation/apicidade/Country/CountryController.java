@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/countries")
 @Controller
-public class CountryResource {
+public class CountryController {
 
     @Autowired
     private CountryRepository countryRepository;
