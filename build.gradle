@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.one.digitalinnovation'
-version = '	T'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -23,21 +23,4 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-}
-
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
-
-task copyToLib(type: Copy) {
-    into "$buildDir/libs"
-    from(configurations.compile)
-}
-
-stage.dependsOn(copyToLib)
-
-gradle.taskGraph.whenReady {
-  taskGraph ->
-    if (taskGraph.hasTask(stage)) {
-      test.enabled = false
-    }
 }
