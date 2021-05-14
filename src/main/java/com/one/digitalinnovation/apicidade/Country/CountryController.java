@@ -1,6 +1,7 @@
 package com.one.digitalinnovation.apicidade.Country;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,7 +39,7 @@ public class CountryController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Country> buscaPais(@PathVariable Long id){
 
-        var optinal = countryRepository.findById(id);
+         Optional<Country> optinal = countryRepository.findById(id);
 
         if(optinal.isPresent()){
             return new ResponseEntity<Country>(optinal.get(), HttpStatus.OK);
