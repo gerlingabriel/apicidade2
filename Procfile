@@ -1,1 +1,1 @@
-web: java -Dspring.profiles.active=heroku -jar build/libs/apicidade.jar
+web: java -jar -Dspring.profiles.active=heroku "%~dp0\apicidade.jar"
